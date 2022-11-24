@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einführung CSS</title>
+    <!--Style-Tag-->
+    <style>
+        p {
+            color: red;
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+    
+    <!--Einfügen einer eigenständigen CSS-Datei-->
+    <link rel="stylesheet" href="stylesheets/myStyles.css">
+    <!--Einfügen einer Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+    
+    <h1 id="site-top">Einführung CSS</h1>
+    <p>Ich bin ein Paragraph</p>
+    <ul>
+        <li>Inline-Styling - hält sich nicht an alle CSS-Syntax Regeln sondern mischt sie mit HTML</li>
+        <li>Den style-Tag</li>
+        <li>Eine eigene *.css Datei</li>
+    </ul>
+    <h2>Inline-Styling</h2>
+    <p style="color:rgba(191, 27, 220, 0.68);font-size: 24px;">Wir sprechen dann vom Inline-Styling
+    wenn wir das style Attribut im zu stylenden Tag benutzen</p>
+    <p>Zweites Paragraph</p>
+
+
+    <h3>Kontrapunkte Inline-Styling</h3>
+    <ul>
+        <li>Mischen von Struktur und Styling</li>
+        <li>Nicht wiederverwendbar, da wir es für jedes Element wieder schreiben müssen</li>
+    </ul>
+
+    <h3>Positiven Aspekt von inline-Styling</h3>
+    <p>Wenn etwas extrem schnell geladen werden muss oder selbst mit schlechtem Internet besonders gestylt werden soll,
+       kann man Inline-Styling hinzufügen, da dieses zusammen mit dem HTML-Element zusammen gerendert wird
+    </p>
+
+    <h2>Style-Tag</h2>
+    <p>Der style-Tag wird im head-Tag gesetzt und funktioniert wie ein normales Stylesheet</p>
+    <h3>Kontrapunkte</h3>
+    <ul>
+        <li>Mischen von CSS und HTML</li>
+        <li>wiederverwendbarkeit ist zwar innerhalb des Dokumentes gegeben, aber müsste zum teilen mit anderen
+            Elementen immer wieder kopiert werden
+        </li>
+    </ul>
+
+    <h3>Positiver Aspekt</h3>
+    <p>Auch hier wird das styling mit dem HTML-Dokument geladen, aber es macht die Datei größer und somit Auch
+        langsamer
+    </p>
+
+    <h2>Eigene CSS-Datei</h2>
+    <p class="cool-paragraph">Gilt als Best Practice</p>
+    <p>Um so vorzugehen brauchen wir einmal eine css-datei und einen Link-Tag der auf diese verweist</p>
+    <h3>Positiver Aspekt</h3>
+    <ul>
+        <li>Übersichtlichkeit</li>
+        <li>wiederverwendbarkeit über mehrere HTML-Dokumente und Webseiten hinweg möglich</li>
+        <li>Klare Trennung der Aufgaben</li>
+    </ul>
+    
+    <h3>Kontra</h3>
+    <ul>
+        <li>Langsamere Ladezeit, da zusätzlich zum HTML-Dokument auch eine CSS-Datei geladen werden muss</li>
+    </ul>
+
+</body>
+</html>

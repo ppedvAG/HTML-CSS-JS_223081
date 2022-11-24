@@ -1,0 +1,46 @@
+/*
+    Ohne Variablen und die media-Queries sind gerade in der falschen Reihenfolge
+
+
+*/
+#first, #second, #third
+{
+    color:rgb(47, 255, 0);
+}
+
+
+@media screen and (max-width:1000px)
+{
+    #first, #second, #third {
+        color:black;
+    }
+}
+
+@media screen and (max-width:750px)
+{
+    #first, #second, #third {
+        color:red;
+    }
+}
+
+
+@media screen and (max-width:500px)
+{
+    #first, #second, #third {
+        color:pink;
+    }
+}
+
+@media screen and (max-width:250px)
+{
+    #first, #second, #third {
+        color: aqua;
+    }
+}
+
+
+@media print {
+    img {
+        display: none;
+    }
+}

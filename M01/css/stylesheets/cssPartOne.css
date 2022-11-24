@@ -1,0 +1,273 @@
+/* 
+    Die verschiedenen Selektoren:
+
+    #id
+    .class
+    p Elemente
+    * Universal
+
+    Kombinatoren:
+*/
+
+h2#first-article{
+    color:blue;
+}
+
+h2 {
+    color:red;
+}
+
+#first-article {
+    color: chartreuse;
+}
+/*Spezifität wird mehr gewichtet als die Kaskadierung*/
+
+h2#first-article
+{
+    color: violet;/*Färbt h2 ein, da es dieselbe Spezifität hat, aber weiter unten definiert wurde*/
+    font-size: 24px;/*Würde so oder so angewandt werden, da sie zu keiner anderen im Konflikt steht*/
+}
+
+/* und-Kombinator */
+/* Selektiert alle aufgezählten Elemente*/
+li, p {
+    color:rgba(13, 12, 12, 0.779);
+}
+
+
+/* Nachfahr/Descendant-Selektor*/
+nav li {
+    list-style-type: none;
+}
+
+/* Direkter Nachfahr/Child-Selektor */
+li>a {
+    text-decoration: none;
+    color: orange;
+}
+
+/* Direct-Sibling-Selector
+    Selektiert nur p Elemente, die direkt nach dem h2 kommen und auf der selben Ebene stehen
+*/
+h2 + p {
+    color:red;
+}
+
+/*General Sibling Selector
+    Selektiert ALLE Elemente die auf der selben Stufe stehen wie das erstgenannte Element
+*/
+
+h2 ~ p {
+    color:blue;
+}
+
+
+/* Attributs-Selektor:*/
+a[href="#"]
+{
+    color:tomato;
+}
+
+/*Können genau angeben wie das Attribut heißen soll*/
+/* Können die Werte recht flexibel abfangen */
+/*
+    element[attributsName="Wert"] => Attribut mit genauem Wert
+    element[attributsName^="Wert"] => Attribut muss mit Wert beginnen
+    element[attributsName$="Wert"] => Attribut muss mit Wert enden
+    element[attributsName*="Wert"] => Attribut muss Wert enthalten
+    element:not([attributsName="Wert"]) => Elementsattribut darf den Wert nicht enthalten
+*/
+
+/* 
+
+*[class*="container"]
+    {
+        diplay: block;
+        height: 150px;
+        background-color: brown;
+    }
+
+    Spezifität:
+    (id, klasse, element)
+    (höchste Priorität, mittlere Priorität, niedrigste Priorität)
+
+*/
+
+/*Pseudoelemente*/
+/*
+    Werden an einen anderen Selektor angehängt
+    Beginnen mit ::Pseudoelement
+*/
+
+/*
+    ::after - Fügt etwas als letztes Child eines Elementes an
+    ::before - Fügt etwas als erstes Child eines Elementes an
+
+*/
+
+li>a::before {
+    content: "Ich bin before ";
+}
+
+li>a::after 
+{
+    content: " Ich bin after";
+}
+
+/*
+    ::first-letter - Stylt den ersten Buchstaben eines Textes
+    ::first-line - Stylt den erste Zeile eines Absatzes
+*/
+
+h2#first-article::first-letter
+{
+    font-size: 48px;
+}
+
+
+h2+p::first-letter
+{
+    color: red;
+}
+
+h2+p::first-line
+{
+    background-color: aquamarine;
+}
+
+/*
+    ::selection - Stylt die Markierung des Benutzers
+*/
+p::selection 
+{
+    background-color: yellow;
+}
+
+/* ::placeholder - Stylt den Platzhalter eines Elementes*/
+#input1::placeholder
+{
+    background-color:teal;
+    color: white;
+}
+
+/*Bestimmt wie die Aufzählungszeichen bei li-Elementen aussehen*/
+article li::marker {
+    content: "Test1";
+}
+
+/*Pseudoklassen*/
+/* :root - Root Element innerhalb unseres Dokumentes */
+/* ist spezifischer als html */
+
+:root {
+    font-size: large;
+}
+
+/* :hover - wird angewandt wenn man mit der Maus über ein Element führt */
+
+*:hover 
+{
+    color: pink;
+}
+
+/*
+    :not()
+    Erfasst Elemente die nicht ausgeschlossen wurden innerhalb der Klammer
+
+    n-th-Child
+
+    :first-child => erfässt das erste Kindselement
+    :last-child => erfässt das letzte Kindselement
+    :only-child => erfässt das einzige Element
+    :nth-child(n+m) => Erfässt das n-te Kind eines Elements und beginnt bei m zu zählen
+    :nth-last-child(n+m) => Erfässt das n-te Kind eines Elements und beginnt bei m zu zählen
+    in umgekehrter Reihenfolge Statt n+m kann auch even oder odd enthalten sein
+*/
+
+li:first-child
+{
+    color: chartreuse;
+}
+
+li:last-child
+{
+    color:chartreuse;
+}
+
+li:first-child:hover
+{
+    color:blue;
+}
+
+/*
+    :only-child {
+        background-color: yellow;
+    }
+
+    li:nth-child(odd)
+    {
+        background-color: blueviolet;
+    }
+
+    li:nth-child(even)
+    {
+        background-color: orange;
+    }
+
+    li:nth-last-child(even)
+    {
+        background-color: blueviolet;
+    }
+*/
+
+li:nth-child(1n+4)
+{
+    background-color: orange;
+}
+
+p {
+    color: brown;
+    font-size: larger;
+    background-color: aquamarine;
+}
+
+p{
+    color:brown;
+    font-size: larger;
+    /*background-color: aquamarine;*/
+}
+
+/*
+    :first-of-type => Stylt das erste Element dieses Typens
+    :last-of-type => Stylt das letzte Element dieses Typens
+    :only-of-type => Stylt das einzige Element dieses Typens
+    :nth-of-type(n+m) => Stylt jedes n-te Element dieses Typens beginnend bei m
+    :nth-last-of-type(n+m) => Stylt jedes n-te Element dieses Typens beginnend bei m,
+    beginnt von hinten an zu zählen
+
+
+    Bei Input-Elemente
+    :valid
+    :invalid
+    Stylen das Element je nachdem ob es gerade gültig ist oder ungültig
+*/
+
+/*
+    Media-Query Einstieg
+    Syntax:
+    @media <geräte-typ> and(beide Bedingungen müssen erfüllt sein) <Bedingung (z.B min-width: ...)>
+    @media <geräte-Typ>, <Bedingung>
+
+    Geräte-Typen:
+    all - Alle Geräte
+    print - Drucker
+    screen - jegliche Bildschirme
+    
+    Weitere nützliche Bedingungen:
+    orientation:
+    portrait : Hochformat
+    landscape : Querformat
+
+    Breakpoints: 
+    Punkte an denen die Regeln geändert werden
+*/
