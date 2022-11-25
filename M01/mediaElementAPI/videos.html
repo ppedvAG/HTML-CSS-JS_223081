@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/videos.css">
+    <title>HTMLMediaElement API</title>
+    <!--<script src="scripts/videos.js" defer></script>
+    
+    https://www.dafont.com/heydings-controls.font
+    https://www.w3schools.com/w3css/w3css_icons.asp
+    -->
+</head>
+<body>
+    
+    <section class="player">
+        <video controls>
+            <source src="https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" type="video/mp4">
+            <source src="https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_stereo.ogg" type="video/ogg">
+        </video>
+    <section class="controls">
+        <!--Jedes HTML-Attribut, das wir mit data- prefixen, steht und in JS zur Verfügung-->
+        <button class="play" data-icon="P" aria-label="play pause toggle"></button>
+        <button class="stop" data-icon="S" aria-label="stop"></button>
+        <section class="timer"><span aria-label="timer">00:00</span></section>
+        <button class="rwd" data-icon="B" aria-label="rewind"></button>
+        <button class="fwd" data-icon="F" aria-label="fast forward"></button>
+    </section>
+    
+</section>
+    <p>Sintel &copy; copyright Blender Foundation | <a href="http://www.sintel.org">www.sintel.org</a></p>
+
+</body>
+</html>
